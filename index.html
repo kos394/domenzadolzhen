@@ -553,6 +553,8 @@
             overflow: hidden;
             margin: 30px 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-height: 500px;
+            overflow-y: auto;
         }
         
         .table-header {
@@ -1250,8 +1252,8 @@
                     <button class="action-btn btn-gold" onclick="calculateFullPlan()">
                         📊 РАССЧИТАТЬ ПОЛНЫЙ ПЛАН
                     </button>
-                    <button class="action-btn btn-blue" onclick="savePersonalPlan()">
-                        💾 СОХРАНИТЬ МОЙ ПЛАН
+                    <button class="action-btn btn-blue" onclick="showAllMonths()">
+                        📋 ПОКАЗАТЬ ВСЕ МЕСЯЦЫ
                     </button>
                     <button class="action-btn btn-green" onclick="markPaymentDone()">
                         ✅ ОТМЕТИТЬ ПЛАТЕЖ
@@ -1538,7 +1540,7 @@
         const feedbackForm = document.getElementById('feedbackForm');
         
         // ============================================
-        // МОДАЛЬНОЕ ОКНО ДЛЯ ОТЗЫВОВ (ИСПРАВЛЕНО)
+        // МОДАЛЬНОЕ ОКНО ДЛЯ ОТЗЫВОВ
         // ============================================
         
         function openFeedbackModal() {
@@ -1595,7 +1597,6 @@
             // Показываем подтверждение
             showMotivation('✨ Спасибо за твою историю! Мы проверим и добавим её на сайт.');
             
-            // В реальном проекте здесь был бы AJAX запрос на сервер
             console.log('Отзыв получен:', feedback);
         });
         
@@ -1620,7 +1621,7 @@
         }
         
         // ============================================
-        // ОСТАЛЬНЫЕ ФУНКЦИИ (БЕЗ ИЗМЕНЕНИЙ)
+        // ОСНОВНЫЕ ФУНКЦИИ КАЛЬКУЛЯТОРА
         // ============================================
         
         function saveToLocalStorage() {
@@ -1724,6 +1725,10 @@
             saveToLocalStorage();
         }
         
+        // ============================================
+        // ОСНОВНАЯ ФУНКЦИЯ РАСЧЕТА - ИСПРАВЛЕННАЯ
+        // ============================================
+        
         function calculate() {
             const debt = parseInt(debtSlider.value);
             const payment = parseInt(paymentSlider.value);
@@ -1749,15 +1754,14 @@
                 remaining -= principalPayment;
                 months++;
                 
-                if (months <= 12) {
-                    monthlyDetails.push({
-                        month: months,
-                        payment: payment,
-                        interest: monthlyInterest,
-                        principal: principalPayment,
-                        remaining: remaining > 0 ? remaining : 0
-                    });
-                }
+                // СОХРАНЯЕМ ВСЕ МЕСЯЦЫ, А НЕ ТОЛЬКО ПЕРВЫЕ 12
+                monthlyDetails.push({
+                    month: months,
+                    payment: payment,
+                    interest: monthlyInterest,
+                    principal: principalPayment,
+                    remaining: remaining > 0 ? remaining : 0
+                });
             }
             
             if (months >= 600) {
@@ -1866,6 +1870,10 @@
             document.getElementById('cdPayments').textContent = remainingPayments;
         }
         
+        // ============================================
+        // ФУНКЦИИ ДЛЯ РАБОТЫ С ПЛАТЕЖАМИ
+        // ============================================
+        
         function markPaymentDone() {
             if (!userData.totalMonths || userData.totalMonths <= 0) {
                 alert('Сначала рассчитай свой план!');
@@ -1935,6 +1943,146 @@
             
             return messages[Math.floor(Math.random() * messages.length)];
         }
+        
+        // ============================================
+        // ФУНКЦИИ ДЛЯ ОТОБРАЖЕНИЯ ПЛАНА
+        // ============================================
+        
+        function calculateFullPlan() {
+            calculate();
+            
+            if (!window.monthlyDetails || window.monthlyDetails.length === 0) return;
+            
+            let tableHTML = `
+                <div class="table-row" style="background: #E3F2FD; font-weight: bold;">
+                    <div class="table-cell">Месяц</div>
+                    <div class="table-cell">Платеж</div>
+                    <div class="table-cell">Проценты</div>
+                    <div class="table-cell">Основной долг</div>
+                    <div class="table-cell">Остаток</div>
+                </div>
+            `;
+            
+            // Для лучшей читаемости показываем максимум 60 месяцев сразу
+            const monthsToShow = window.monthlyDetails.length;
+            const maxVisibleMonths = 60;
+            
+            if (monthsToShow > maxVisibleMonths) {
+                // Показываем первые 6 месяцев
+                for (let i = 0; i < 6; i++) {
+                    addRowToTable(window.monthlyDetails[i], tableHTML);
+                }
+                
+                // Пропуск месяцев
+                tableHTML += `
+                    <div class="table-row" style="background: #FFF8E1; text-align: center; font-style: italic;">
+                        <div class="table-cell" colspan="5">... (пропущено ${monthsToShow - 12} месяцев) ...</div>
+                    </div>
+                `;
+                
+                // Показываем последние 6 месяцев
+                for (let i = monthsToShow - 6; i < monthsToShow; i++) {
+                    addRowToTable(window.monthlyDetails[i], tableHTML);
+                }
+            } else {
+                // Показываем все месяцы если их немного
+                window.monthlyDetails.forEach(detail => {
+                    addRowToTable(detail, tableHTML);
+                });
+            }
+            
+            // Добавляем итоговую строку
+            const totalInterest = window.currentPlan.debt * window.currentPlan.interest * 12 * (window.currentPlan.months/12) / 2;
+            tableHTML += `
+                <div class="table-row" style="background: #FFF8E1; font-weight: bold;">
+                    <div class="table-cell">Итого</div>
+                    <div class="table-cell">${formatNumber(window.currentPlan.payment * window.currentPlan.months)} ₽</div>
+                    <div class="table-cell">${formatNumber(totalInterest)} ₽*</div>
+                    <div class="table-cell">${formatNumber(window.currentPlan.debt)} ₽</div>
+                    <div class="table-cell">0 ₽ через ${window.currentPlan.months} мес</div>
+                </div>
+            `;
+            
+            paymentTable.innerHTML = tableHTML;
+            paymentTableContainer.style.display = 'block';
+            paymentTableContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            showMotivation('📊 Полный план рассчитан! Теперь ты видишь свой путь к свободе. 👇');
+        }
+        
+        // НОВАЯ ФУНКЦИЯ: Показать все месяцы
+        function showAllMonths() {
+            if (!window.monthlyDetails || window.monthlyDetails.length === 0) {
+                alert('Сначала рассчитай свой план!');
+                return;
+            }
+            
+            let tableHTML = `
+                <div class="table-row" style="background: #E3F2FD; font-weight: bold;">
+                    <div class="table-cell">Месяц</div>
+                    <div class="table-cell">Платеж</div>
+                    <div class="table-cell">Проценты</div>
+                    <div class="table-cell">Основной долг</div>
+                    <div class="table-cell">Остаток</div>
+                </div>
+            `;
+            
+            // Показываем ВСЕ месяцы
+            window.monthlyDetails.forEach(detail => {
+                const isCurrent = detail.month === userData.completedMonths + 1;
+                const isPaid = detail.month <= userData.completedMonths;
+                const rowClass = isCurrent ? 'current-cell' : (isPaid ? 'paid-cell' : '');
+                
+                tableHTML += `
+                    <div class="table-row ${rowClass}">
+                        <div class="table-cell">${detail.month} ${isPaid ? '✅' : (isCurrent ? '📍' : '')}</div>
+                        <div class="table-cell">${formatNumber(detail.payment)} ₽</div>
+                        <div class="table-cell">${formatNumber(detail.interest)} ₽</div>
+                        <div class="table-cell">${formatNumber(detail.principal)} ₽</div>
+                        <div class="table-cell">${formatNumber(detail.remaining)} ₽</div>
+                    </div>
+                `;
+            });
+            
+            // Добавляем итоговую строку
+            const totalInterest = window.currentPlan.debt * window.currentPlan.interest * 12 * (window.currentPlan.months/12) / 2;
+            tableHTML += `
+                <div class="table-row" style="background: #FFF8E1; font-weight: bold;">
+                    <div class="table-cell">Итого</div>
+                    <div class="table-cell">${formatNumber(window.currentPlan.payment * window.currentPlan.months)} ₽</div>
+                    <div class="table-cell">${formatNumber(totalInterest)} ₽*</div>
+                    <div class="table-cell">${formatNumber(window.currentPlan.debt)} ₽</div>
+                    <div class="table-cell">0 ₽ через ${window.currentPlan.months} мес</div>
+                </div>
+            `;
+            
+            paymentTable.innerHTML = tableHTML;
+            paymentTableContainer.style.display = 'block';
+            paymentTableContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            showMotivation('📋 Показаны ВСЕ месяцы вашего плана погашения!');
+        }
+        
+        // Вспомогательная функция для добавления строк в таблицу
+        function addRowToTable(detail, html) {
+            const isCurrent = detail.month === userData.completedMonths + 1;
+            const isPaid = detail.month <= userData.completedMonths;
+            const rowClass = isCurrent ? 'current-cell' : (isPaid ? 'paid-cell' : '');
+            
+            html += `
+                <div class="table-row ${rowClass}">
+                    <div class="table-cell">${detail.month} ${isPaid ? '✅' : (isCurrent ? '📍' : '')}</div>
+                    <div class="table-cell">${formatNumber(detail.payment)} ₽</div>
+                    <div class="table-cell">${formatNumber(detail.interest)} ₽</div>
+                    <div class="table-cell">${formatNumber(detail.principal)} ₽</div>
+                    <div class="table-cell">${formatNumber(detail.remaining)} ₽</div>
+                </div>
+            `;
+        }
+        
+        // ============================================
+        // ФУНКЦИИ ДЛЯ ДОСТИЖЕНИЙ
+        // ============================================
         
         function checkAchievements() {
             const achievements = [];
@@ -2046,56 +2194,9 @@
             }
         }
         
-        function calculateFullPlan() {
-            calculate();
-            
-            if (!window.monthlyDetails || window.monthlyDetails.length === 0) return;
-            
-            let tableHTML = `
-                <div class="table-row" style="background: #E3F2FD; font-weight: bold;">
-                    <div class="table-cell">Месяц</div>
-                    <div class="table-cell">Платеж</div>
-                    <div class="table-cell">Проценты</div>
-                    <div class="table-cell">Основной долг</div>
-                    <div class="table-cell">Остаток</div>
-                </div>
-            `;
-            
-            window.monthlyDetails.forEach(detail => {
-                const isCurrent = detail.month === userData.completedMonths + 1;
-                const isPaid = detail.month <= userData.completedMonths;
-                const rowClass = isCurrent ? 'current-cell' : (isPaid ? 'paid-cell' : '');
-                
-                tableHTML += `
-                    <div class="table-row ${rowClass}">
-                        <div class="table-cell">${detail.month} ${isPaid ? '✅' : (isCurrent ? '📍' : '')}</div>
-                        <div class="table-cell">${formatNumber(detail.payment)} ₽</div>
-                        <div class="table-cell">${formatNumber(detail.interest)} ₽</div>
-                        <div class="table-cell">${formatNumber(detail.principal)} ₽</div>
-                        <div class="table-cell">${formatNumber(detail.remaining)} ₽</div>
-                    </div>
-                `;
-            });
-            
-            if (window.currentPlan && window.currentPlan.months > 12) {
-                const totalInterest = window.currentPlan.debt * window.currentPlan.interest * 12 * (window.currentPlan.months/12) / 2;
-                tableHTML += `
-                    <div class="table-row" style="background: #FFF8E1; font-weight: bold;">
-                        <div class="table-cell">Итого</div>
-                        <div class="table-cell">${formatNumber(window.currentPlan.payment * window.currentPlan.months)} ₽</div>
-                        <div class="table-cell">${formatNumber(totalInterest)} ₽*</div>
-                        <div class="table-cell">${formatNumber(window.currentPlan.debt)} ₽</div>
-                        <div class="table-cell">0 ₽ через ${window.currentPlan.months} мес</div>
-                    </div>
-                `;
-            }
-            
-            paymentTable.innerHTML = tableHTML;
-            paymentTableContainer.style.display = 'block';
-            paymentTableContainer.scrollIntoView({ behavior: 'smooth' });
-            
-            showMotivation('📊 Полный план рассчитан! Теперь ты видишь свой путь к свободе. 👇');
-        }
+        // ============================================
+        // ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ
+        // ============================================
         
         function savePersonalPlan() {
             if (!window.currentPlan) {
@@ -2371,6 +2472,10 @@ ${userData.paymentHistory.length > 0 ? userData.paymentHistory.map(p => `• ${n
             }
         }
         
+        // ============================================
+        // ИНИЦИАЛИЗАЦИЯ
+        // ============================================
+        
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             setCurrentDate();
@@ -2380,6 +2485,7 @@ ${userData.paymentHistory.length > 0 ? userData.paymentHistory.map(p => `• ${n
             updatePayment();
             updateInterest();
             
+            // Плавная прокрутка для якорных ссылок
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -2396,10 +2502,12 @@ ${userData.paymentHistory.length > 0 ? userData.paymentHistory.map(p => `• ${n
                 });
             });
             
+            // Сохранение при изменении слайдеров
             [debtSlider, paymentSlider, interestSlider].forEach(slider => {
                 slider.addEventListener('change', saveToLocalStorage);
             });
             
+            // Автоматический расчет при загрузке
             setTimeout(() => {
                 calculate();
                 if (userData.completedMonths > 0) {
