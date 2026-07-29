@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мастер в Братске | Сварка, ремонт, стройка | Опыт более 8 лет</title>
-    <meta name="description" content="Мастер в Братске. Сварка, ремонт, стройка. Опыт более 8 лет. Честная история Виталия: долг 1,3 млн, стройка своими руками.">
+    <title>Мастер в Братске | Сварка, ремонт, стройка</title>
+    <meta name="description" content="Мастер в Братске. Сварка, ремонт, стройка. Опыт более 10 лет. Честный подход к делу.">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Yandex.Metrika counter -->
@@ -115,6 +115,10 @@
         .hero h1 {
             font-size: 2.8rem;
             line-height: 1.2;
+            background: linear-gradient(45deg, #e67e22, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .hero .highlight {
             color: #e67e22;
@@ -155,22 +159,37 @@
         .btn-secondary:hover {
             background: #3a3a3a;
         }
-        .debt-stats {
+        .story-block {
             background: #111;
             padding: 40px 20px;
             margin: 60px 0;
             text-align: center;
             border-top: 1px solid #e67e22;
             border-bottom: 1px solid #e67e22;
+            border-radius: 12px;
         }
-        .stats-grid {
+        .story-block h2 {
+            color: #e67e22;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .story-block p {
+            max-width: 800px;
+            margin: 10px auto;
+            font-size: 1.1rem;
+        }
+        .story-grid {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 30px;
             margin-top: 30px;
         }
-        .stat-number {
+        .story-item {
+            flex: 1;
+            min-width: 150px;
+        }
+        .story-item .number {
             font-size: 2.8rem;
             font-weight: 800;
             color: #e67e22;
@@ -190,6 +209,7 @@
         .card h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
+            color: #e67e22;
         }
         .card a {
             color: #e67e22;
@@ -292,6 +312,9 @@
             .header-phone {
                 font-size: 1rem;
             }
+            .story-grid {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -306,15 +329,14 @@
                 <a href="tel:89294390444" class="btn-call">Позвонить</a>
             </div>
             <div class="nav-links">
-    <a href="index.html">Главная</a>
-    <a href="history.html">История долга</a>
-    <a href="master.html">Услуги мастера</a>
-    <a href="works.html">Мои работы</a>
-    <a href="debts.html">Мои долги</a>
-    <a href="donate.html">Помочь</a>
-    <a href="contacts.html">Контакты</a>
-    <a href="reviews.html">Отзывы</a>
-</div>
+                <a href="index.html">Главная</a>
+                <a href="history.html">Моя история</a>
+                <a href="master.html">Услуги мастера</a>
+                <a href="works.html">Мои работы</a>
+                <a href="donate.html">Помочь</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="reviews.html">Отзывы</a>
+            </div>
         </div>
     </div>
 </div>
@@ -322,14 +344,14 @@
 <main class="container">
     <div class="hero">
         <div>
-            <h1>Стройка, ремонт, сварочные работы в Братске</h1>
+            <h1>Сварка, ремонт, стройка в Братске</h1>
             <div class="highlight">
-                Долг 1,3 млн. Счета арестованы. Строю дом для семьи.
+                Более 10 лет опыта. Работаю руками, отвечаю за результат.
             </div>
             <div class="btn-group">
                 <a href="history.html" class="btn-primary">Моя история →</a>
                 <a href="master.html" class="btn-secondary">Нанять мастера →</a>
-                <a href="donate.html" class="btn-secondary">Помочь рублём →</a>
+                <a href="donate.html" class="btn-secondary">Поддержать →</a>
             </div>
         </div>
         <div style="background: #1f1f1f; padding: 20px; text-align: center; border-left: 4px solid #e67e22; border-radius: 0 12px 12px 0;">
@@ -338,25 +360,38 @@
         </div>
     </div>
 
-    <div class="debt-stats">
-        <h2>Прямо сейчас. Без вранья.</h2>
-        <div class="stats-grid">
-            <div class="stat"><div class="stat-number">1 372 000 ₽</div><div>долг банкам</div></div>
-            <div class="stat"><div class="stat-number">0 ₽</div><div>на счетах — арест</div></div>
-            <div class="stat"><div class="stat-number">5 лет</div><div>строю сам</div></div>
-            <div class="stat"><div class="stat-number">49 лет</div><div>не сдался</div></div>
+    <div class="story-block">
+        <h2>🧑‍🔧 Моя история</h2>
+        <p>Я начал заниматься ремонтами и стройкой более 10 лет назад. Сначала для себя, потом для знакомых, а теперь — для людей. За это время я освоил сварку, столярку, отделку, установку окон и дверей. Работаю руками, головой и совестью. Моя главная цель — чтобы результат радовал, а не разочаровывал.</p>
+        <div class="story-grid">
+            <div class="story-item">
+                <div class="number">10+</div>
+                <div>лет опыта</div>
+            </div>
+            <div class="story-item">
+                <div class="number">50+</div>
+                <div>выполненных проектов</div>
+            </div>
+            <div class="story-item">
+                <div class="number">100%</div>
+                <div>ответственность</div>
+            </div>
+            <div class="story-item">
+                <div class="number">🛠️</div>
+                <div>руками и душой</div>
+            </div>
         </div>
     </div>
 
     <div class="two-columns">
         <div class="card">
-            <h3>📉 Я в долгах</h3>
-           <p>Биржа, микрозаймы, кредиты. Приставы арестовали все счета. Моя борьба за преодоление продолжается.</p>
-            <a href="history.html">→ Читать дневник должника</a>
+            <h3>📖 Моя история</h3>
+            <p>Как я учился ремеслу, с чего начинал и что делаю сейчас. Честно, без лишних слов.</p>
+            <a href="history.html">→ Читать подробнее</a>
         </div>
         <div class="card">
-            <h3>🔧 Я — мастер</h3>
-            <p>Сварка, ремонт, стройка в Братске. Ответственно, без скрытых доплат. Я не обещаю — я делаю. Моя работа говорит сама за себя.</p>
+            <h3>🔧 Что я умею</h3>
+            <p>Сварка, ремонт, стройка, столярка. Посмотрите, что я уже сделал.</p>
             <a href="master.html">→ Заказать услуги мастера</a>
         </div>
     </div>
@@ -368,13 +403,12 @@
     </div>
 
     <div class="about-block">
-        <p style="font-size: 1.1rem;">👨‍🔧 Меня зовут Виталий. Опыт в ремонте и строительстве более 10 лет. Работаю руками, отвечаю за результат. Без пустых обещаний.</p>
+        <p style="font-size: 1.1rem;">👨‍🔧 Меня зовут Виталий. Более 10 лет в ремонте и строительстве. Работаю руками, отвечаю за результат. Без пустых обещаний.</p>
     </div>
 
     <div class="trust-block">
-        <h2>💛 Почему мне можно верить и помогать?</h2>
-        <p>Я строю дом не для роскоши, а для жены и двоих детей. Сыну 12 лет, дочери 10. Они не виноваты в моих долгах.</p>
-        <p style="margin-top:15px;">Сейчас я не могу закончить стройку из-за арестованных счетов. Но я не стою на месте. Имею хороший опыт в строительстве и ремонте, также научился работать со сваркой.</p>
+        <h2>💛 Почему мне можно доверять</h2>
+        <p>Я строю дом для своей семьи — жены и двоих детей. Поэтому каждый заказ я делаю так, как если бы делал для себя. Мне важно, чтобы было надёжно, аккуратно и без сюрпризов.</p>
     </div>
 
     <div class="social-block">
@@ -385,7 +419,6 @@
             <a href="https://vk.com/siberian_build" target="_blank">📱 ВКонтакте (строю сам)</a>
             <a href="https://ok.ru/remont.kvartirofisovgarazhey" target="_blank">📱 Одноклассники (ВАШ МАСТЕР)</a>
         </div>
-        <p style="margin-top:20px; font-weight:bold; color:#e67e22;">Любая помощь приближает мою семью к своему дому.</p>
     </div>
 
     <div style="text-align:center; margin: 40px 0;">
@@ -399,8 +432,8 @@
 
 <footer class="footer">
     <div class="container">
-        <p><strong>Виталий, Мастер в Братске</strong> — должник, строитель, мастер.</p>
-        <p>Честная история без прикрас. Сварка, стройка, долги — всё в одном месте.</p>
+        <p><strong>Виталий, Мастер в Братске</strong> — строитель, мастер, человек.</p>
+        <p>Делаю руками, отвечаю за результат.</p>
         <p style="margin-top:20px;">
             📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a><br>
             💬 Телеграм: <a href="https://t.me/vitalyan2906" target="_blank">@vitalyan2906</a>
