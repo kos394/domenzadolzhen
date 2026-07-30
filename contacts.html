@@ -5,34 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты — Мастер в Братске</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109310973', 'ym');
-
-        ym(109310973, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109310973" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         .header { border-bottom: 2px solid #e67e22; padding: 20px 0; margin-bottom: 40px; }
         .nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .logo { font-size: 1.8rem; font-weight: 800; color: #e67e22; }
         .nav-links { display: flex; gap: 25px; flex-wrap: wrap; }
         .nav-links a { color: #ddd; text-decoration: none; font-weight: 600; }
         .nav-links a:hover { color: #e67e22; }
-        .contact-card { background: #151515; padding: 30px; margin: 30px 0; border-left: 4px solid #e67e22; }
-        .btn { display: inline-block; background: #e67e22; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; margin: 10px 5px; }
+        .contacts-block { background: #151515; padding: 40px; margin: 30px 0; border-left: 4px solid #e67e22; border-radius: 0 12px 12px 0; }
+        .contacts-block h1 { color: #e67e22; font-size: 2.5rem; margin-bottom: 20px; }
+        .contact-item { font-size: 1.2rem; margin: 15px 0; padding: 15px; background: #1f1f1f; border-radius: 8px; }
+        .contact-item a { color: #e67e22; text-decoration: none; font-weight: bold; }
+        .contact-item a:hover { text-decoration: underline; }
         .footer { text-align: center; padding: 50px 0 30px; margin-top: 80px; border-top: 1px solid #222; }
+        .footer a { color: #e67e22; text-decoration: none; }
         @media (max-width: 768px) { .nav { flex-direction: column; align-items: center; } }
     </style>
 </head>
@@ -43,9 +32,9 @@
             <div class="logo">МАСТЕР В БРАТСКЕ</div>
             <div class="nav-links">
                 <a href="index.html">Главная</a>
-                <a href="history.html">История долга</a>
+                <a href="history.html">Моя история</a>
                 <a href="master.html">Услуги мастера</a>
-                <a href="debts.html">Мои долги</a>
+                <a href="works.html">Мои работы</a>
                 <a href="donate.html">Помочь</a>
                 <a href="contacts.html">Контакты</a>
                 <a href="reviews.html">Отзывы</a>
@@ -53,28 +42,22 @@
         </div>
     </div>
 
-    <h1>📞 Связаться со мной</h1>
-
-    <div class="contact-card">
-        <p><strong>📱 Телефон:</strong> <a href="tel:89294390444" style="color:#e67e22;">8 929 439-04-44</a></p>
-        <p><strong>💬 Телега:</strong> <a href="https://t.me/vitalyan2906" target="_blank" style="color:#e67e22;">@vitalyan2906</a></p>
-        <p><strong>📧 Email:</strong> <a href="mailto:vitaliy-chernov-2012@mail.ru" style="color:#e67e22;">vitaliy-chernov-2012@mail.ru</a></p>
+    <div class="contacts-block">
+        <h1>📞 Связаться со мной</h1>
+        <div class="contact-item">📱 Телефон: <a href="tel:89294390444">8 929 439-04-44</a></div>
+        <div class="contact-item">💬 Telegram: <a href="https://web.telegram.org/k/#@vitalyan2906" target="_blank">@vitalyan2906</a></div>
+        <div class="contact-item">📧 Email: <a href="mailto:vitaliy-chernov-2012@mail.ru">vitaliy-chernov-2012@mail.ru</a></div>
+        <div class="contact-item">📍 Братск, Иркутская область</div>
+        <p style="margin-top: 25px; font-size: 1.1rem;">Если вам нужна сварка, ремонт или стройка — звоните. Я всегда на связи.</p>
     </div>
-
-    <div style="text-align: center;">
-        <a href="tel:89294390444" class="btn">📞 ПОЗВОНИТЬ</a>
-        <a href="https://t.me/vitalyan2906" target="_blank" class="btn">💬 НАПИСАТЬ В ТЕЛЕГУ</a>
-    </div>
-
-    <p style="margin-top: 30px;">⚡ Если вам нужна сварка, ремонт или стройка — звоните. Я всегда на связи.</p>
 
     <a href="index.html" style="color: #e67e22;">← На главную</a>
 </div>
 <footer class="footer">
     <div class="container">
-        <p><strong>Виталий, Мастер в Братске</strong> — должник, строитель, мастер.</p>
-        <p>Честная история без прикрас. Сварка, стройка, долги — всё в одном месте.</p>
-        <p style="margin-top:20px;">📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a> | 💬 Телега: <a href="https://t.me/vitalyan2906" target="_blank">@vitalyan2906</a></p>
+        <p><strong>Виталий, Мастер в Братске</strong> — строитель, мастер, человек.</p>
+        <p>Делаю руками, отвечаю за результат.</p>
+        <p style="margin-top:20px;">📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a> | 💬 Telegram: <a href="https://web.telegram.org/k/#@vitalyan2906" target="_blank">@vitalyan2906</a></p>
         <p style="margin-top:20px; font-size:0.8rem;">Мастер в Братске — живой человек. Братск 2026.</p>
     </div>
 </footer>
