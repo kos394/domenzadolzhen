@@ -3,23 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Помочь мастеру — заказать услуги в Братске</title>
+    <title>Поддержать мастера — заказать услуги в Братске</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109310973', 'ym');
-
-        ym(109310973, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109310973" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
@@ -31,6 +16,9 @@
         .nav-links a { color: #ddd; text-decoration: none; font-weight: 600; }
         .nav-links a:hover { color: #e67e22; }
         .help-box { background: #151515; padding: 40px; margin: 30px 0; text-align: center; border: 2px solid #e67e22; border-radius: 20px; }
+        .help-box-green { border-color: #2ecc71; }
+        .btn-primary { background: #e67e22; color: #0a0a0a; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; transition: background 0.2s; }
+        .btn-primary:hover { background: #f39c12; }
         .footer { text-align: center; padding: 50px 0 30px; margin-top: 80px; border-top: 1px solid #222; }
         .footer a { color: #e67e22; text-decoration: none; }
         @media (max-width: 768px) { .nav { flex-direction: column; align-items: center; } }
@@ -43,9 +31,9 @@
             <div class="logo">МАСТЕР В БРАТСКЕ</div>
             <div class="nav-links">
                 <a href="index.html">Главная</a>
-                <a href="history.html">История долга</a>
+                <a href="history.html">Моя история</a>
                 <a href="master.html">Услуги мастера</a>
-                <a href="debts.html">Мои долги</a>
+                <a href="works.html">Мои работы</a>
                 <a href="donate.html">Помочь</a>
                 <a href="contacts.html">Контакты</a>
                 <a href="reviews.html">Отзывы</a>
@@ -54,35 +42,42 @@
     </div>
 
     <h1>🤝 Поддержать мастера</h1>
-    <p>Самая лучшая помощь для меня — это ваш заказ. Так я могу заработать своим трудом и продолжить строить дом для семьи.</p>
+    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">Самая лучшая помощь для меня — это ваш заказ. Так я могу заработать своим трудом и продолжить строить дом для семьи.</p>
 
+    <!-- Блок: заказ работы -->
     <div class="help-box">
         <h3 style="color: #e67e22;">🔧 Закажите у меня работу</h3>
         <p style="margin: 20px 0;">Сварка, ремонт, стройка в Братске. Работаю ответственно, цены обсуждаемы.</p>
-        <a href="master.html" style="background: #e67e22; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block;">Перейти к услугам мастера →</a>
+        <a href="master.html" class="btn-primary">Перейти к услугам мастера →</a>
         <p style="margin-top:20px;">или позвоните по телефону: <strong>8 929 439-04-44</strong></p>
     </div>
 
-    <div class="help-box" style="border-color: #2ecc71;">
-        <h3 style="color: #2ecc71;">💳 Если вы хотите помочь рублём</h3>
-        <p style="margin: 20px 0;">Ваш перевод пойдёт на погашение долгов и стройку дома для моей семьи.</p>
-        <p style="margin: 20px 0;">
-            <strong>Как перевести:</strong><br>
-            В приложении вашего банка выберите <strong>«Перевод по номеру телефона» (СБП)</strong>.<br>
-            Введите номер <strong>8 929 439-04-44</strong>.<br>
-            <span style="color: #e67e22;">В списке банков выберите «ЮMoney» (или «YooMoney»).</span>
-        </p>
-        <p style="font-size: 0.9rem;">Все средства поступят на мой кошелек и сразу пойдут на стройку и погашение долгов.</p>
+    <!-- Новый вдохновляющий блок (вместо долгов) -->
+    <div class="help-box help-box-green">
+        <h3 style="color: #2ecc71;">💳 Поддержать рублём</h3>
+        <p style="margin: 20px 0;">Каждый перевод — это кирпичик в стене моего дома, который я строю для семьи. Ваша помощь даёт мне силы двигаться вперёд и делать своё дело с любовью.</p>
+        
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: left; border: 1px solid #2ecc71;">
+            <p style="font-weight: bold; color: #2ecc71;">Как перевести:</p>
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>В приложении вашего банка выберите <strong>«Перевод по номеру телефона»</strong> (СБП).</li>
+                <li>Введите номер <strong>8 929 439-04-44</strong>.</li>
+                <li>В списке банков выберите <strong>«ЮMoney»</strong> (или «YooMoney»).</li>
+            </ol>
+        </div>
+        <p style="font-size: 0.9rem; color: #aaa;">Ваше участие приближает меня к цели — завершить стройку и подарить семье уютный дом.</p>
     </div>
 
-    <p style="text-align: center;">Спасибо каждому, кто доверяет мне свою работу и поддерживает. Вы даёте мне силы двигаться вперёд и строить дом для семьи. 💪</p>
+    <p style="text-align: center; margin-top: 30px;">Спасибо каждому, кто доверяет мне свою работу и поддерживает. Вы даёте мне силы двигаться вперёд и строить дом для семьи. 💪</p>
 
-    <a href="index.html" style="color: #e67e22;">← На главную</a>
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" style="color: #e67e22;">← На главную</a>
+    </div>
 </div>
 <footer class="footer">
     <div class="container">
-        <p><strong>Виталий, Мастер в Братске</strong> — должник, строитель, мастер.</p>
-        <p>Честная история без прикрас. Сварка, стройка, долги — всё в одном месте.</p>
+        <p><strong>Виталий, Мастер в Братске</strong> — строитель, мастер, человек.</p>
+        <p>Делаю руками, отвечаю за результат.</p>
         <p style="margin-top:20px;">📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a> | 💬 Телега: <a href="https://t.me/vitalyan2906" target="_blank">@vitalyan2906</a></p>
         <p style="margin-top:20px; font-size:0.8rem;">Мастер в Братске — живой человек. Братск 2026.</p>
     </div>
