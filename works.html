@@ -6,160 +6,33 @@
     <title>Мои работы — Мастер в Братске</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #0a0a0a;
-            color: #e0e0e0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .header {
-            border-bottom: 2px solid #e67e22;
-            padding: 20px 0;
-            margin-bottom: 40px;
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #e67e22;
-        }
-        .logo span {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: #ddd;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .nav-links a:hover {
-            color: #e67e22;
-        }
-        .page-title {
-            color: #e67e22;
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-        .sub-title {
-            font-size: 1.3rem;
-            color: #ccc;
-            margin-bottom: 40px;
-        }
-        .works-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .work-item {
-            background: #151515;
-            border-radius: 8px;
-            overflow: hidden;
-            border-bottom: 3px solid #e67e22;
-            transition: transform 0.2s;
-        }
-        .work-item:hover {
-            transform: scale(1.02);
-        }
-        .work-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-        .work-item .desc {
-            padding: 15px;
-            text-align: center;
-        }
-        .work-item .desc h3 {
-            color: #e67e22;
-            margin-bottom: 5px;
-        }
-        .work-item .desc p {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        .cta-block {
-            background: #1a1a1a;
-            padding: 35px;
-            text-align: center;
-            margin: 40px 0;
-            border-radius: 12px;
-            border: 1px solid #e67e22;
-        }
-        .cta-block .big-phone {
-            font-size: 2.5rem;
-            color: #e67e22;
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-            margin: 15px 0;
-        }
-        .btn {
-            display: inline-block;
-            background: #e67e22;
-            color: #0a0a0a;
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 40px;
-            margin: 10px 5px;
-            transition: background 0.2s;
-        }
-        .btn:hover {
-            background: #f39c12;
-        }
-        .btn-secondary {
-            background: #2c2c2c;
-            color: #e0e0e0;
-            border: 1px solid #e67e22;
-        }
-        .btn-secondary:hover {
-            background: #3a3a3a;
-        }
-        .footer {
-            background: #050505;
-            padding: 50px 0 30px;
-            margin-top: 80px;
-            text-align: center;
-        }
-        .footer a {
-            color: #e67e22;
-            text-decoration: none;
-        }
-        @media (max-width: 768px) {
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-            .page-title {
-                font-size: 2rem;
-            }
-            .cta-block .big-phone {
-                font-size: 1.8rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { border-bottom: 2px solid #e67e22; padding: 20px 0; margin-bottom: 40px; }
+        .nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: #e67e22; }
+        .nav-links { display: flex; gap: 25px; flex-wrap: wrap; }
+        .nav-links a { color: #ddd; text-decoration: none; font-weight: 600; }
+        .nav-links a:hover { color: #e67e22; }
+        .page-title { color: #e67e22; font-size: 2.8rem; margin-bottom: 10px; line-height: 1.2; }
+        .sub-title { font-size: 1.3rem; color: #ccc; margin-bottom: 40px; }
+        .works-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; margin: 40px 0; }
+        .work-item { background: #151515; border-radius: 8px; overflow: hidden; border-bottom: 3px solid #e67e22; transition: transform 0.2s; }
+        .work-item:hover { transform: scale(1.02); }
+        .work-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .work-item .desc { padding: 15px; text-align: center; }
+        .work-item .desc h3 { color: #e67e22; margin-bottom: 5px; }
+        .work-item .desc p { color: #aaa; font-size: 0.9rem; }
+        .cta-block { background: #1a1a1a; padding: 35px; text-align: center; margin: 40px 0; border-radius: 12px; border: 1px solid #e67e22; }
+        .cta-block .big-phone { font-size: 2.5rem; color: #e67e22; text-decoration: none; font-weight: bold; display: block; margin: 15px 0; }
+        .btn { display: inline-block; background: #e67e22; color: #0a0a0a; padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 40px; margin: 10px 5px; transition: background 0.2s; }
+        .btn:hover { background: #f39c12; }
+        .btn-secondary { background: #2c2c2c; color: #e0e0e0; border: 1px solid #e67e22; }
+        .btn-secondary:hover { background: #3a3a3a; }
+        .footer { background: #050505; padding: 50px 0 30px; margin-top: 80px; text-align: center; }
+        .footer a { color: #e67e22; text-decoration: none; }
+        @media (max-width: 768px) { .works-grid { grid-template-columns: 1fr; } .page-title { font-size: 2rem; } .cta-block .big-phone { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
@@ -170,10 +43,9 @@
             <div class="logo">МАСТЕР В БРАТСКЕ <span>Виталий</span></div>
             <div class="nav-links">
                 <a href="index.html">Главная</a>
-                <a href="history.html">История долга</a>
+                <a href="history.html">Моя история</a>
                 <a href="master.html">Услуги мастера</a>
                 <a href="works.html">Мои работы</a>
-                <a href="debts.html">Мои долги</a>
                 <a href="donate.html">Помочь</a>
                 <a href="contacts.html">Контакты</a>
                 <a href="reviews.html">Отзывы</a>
@@ -184,10 +56,10 @@
 
 <main class="container">
     <h1 class="page-title">📸 Мои работы</h1>
-    <p class="sub-title">Примеры того, что я делаю своими руками. Пока немного, но каждое — живое и на совесть.</p>
+    <p class="sub-title">Примеры того, что я делаю своими руками. Каждый проект — живой, сделанный на совесть.</p>
 
     <div class="works-grid">
-        <!-- ФОТО 1: Лестница -->
+        <!-- 1. ЛЕСТНИЦА -->
         <div class="work-item">
             <img src="foto/lesnica.jpg" alt="Деревянная лестница">
             <div class="desc">
@@ -196,7 +68,7 @@
             </div>
         </div>
 
-        <!-- ФОТО 2: Пресс (сварка) -->
+        <!-- 2. СВАРНОЙ ПРЕСС -->
         <div class="work-item">
             <img src="foto/press.jpg" alt="Сварной пресс">
             <div class="desc">
@@ -205,11 +77,38 @@
             </div>
         </div>
 
-        <!-- ФОТО 3: Стройка (пример) -->
+        <!-- 3. УСТАНОВКА ДВЕРИ -->
+        <div class="work-item">
+            <img src="foto/dveri.jpg" alt="Установка двери">
+            <div class="desc">
+                <h3>Монтаж дверей</h3>
+                <p>Установка входной и межкомнатных дверей, замена старых блоков</p>
+            </div>
+        </div>
+
+        <!-- 4. РАБОТЫ В ГАРАЖЕ -->
+        <div class="work-item">
+            <img src="foto/garazh.jpg" alt="Ремонт гаража">
+            <div class="desc">
+                <h3>Утепление и отделка гаража</h3>
+                <p>Обшивка стен ОСБ, утепление, монтаж каркаса</p>
+            </div>
+        </div>
+
+        <!-- 5. ВНУТРЕННЯЯ ОТДЕЛКА -->
+        <div class="work-item">
+            <img src="foto/otdelka.jpg" alt="Внутренняя отделка">
+            <div class="desc">
+                <h3>Отделочные работы</h3>
+                <p>ГКЛ, ОСБ, линолеум, монтаж конструкций — полный комплекс</p>
+            </div>
+        </div>
+
+        <!-- 6. СТРОЙКА И РЕМОНТ -->
         <div class="work-item">
             <img src="foto/stroyka.jpg" alt="Строительные работы">
             <div class="desc">
-                <h3>Строительные и ремонтные работы</h3>
+                <h3>Строительство и ремонт</h3>
                 <p>Отделка, монтаж, мелкая стройка — более 10 объектов</p>
             </div>
         </div>
@@ -224,7 +123,7 @@
         <a href="tel:89294390444" class="big-phone">8 929 439-04-44</a>
         <div>
             <a href="tel:89294390444" class="btn">📞 ПОЗВОНИТЬ</a>
-            <a href="https://t.me/vitalyan2906" target="_blank" class="btn btn-secondary">💬 НАПИСАТЬ В ТЕЛЕГУ</a>
+            <a href="https://web.telegram.org/k/#@vitalyan2906" target="_blank" class="btn btn-secondary">💬 НАПИСАТЬ В TELEGRAM</a>
         </div>
         <p style="margin-top: 20px; color: #aaa;">⚡ Работаю в Братске и рядом. Без предоплаты — сначала делаю, потом вы платите.</p>
     </div>
@@ -232,11 +131,11 @@
 
 <footer class="footer">
     <div class="container">
-        <p><strong>Виталий, Мастер в Братске</strong> — должник, строитель, мастер.</p>
-        <p>Честная история без прикрас. Сварка, стройка, долги — всё в одном месте.</p>
+        <p><strong>Виталий, Мастер в Братске</strong> — строитель, мастер, человек.</p>
+        <p>Делаю руками, отвечаю за результат.</p>
         <p style="margin-top:20px;">
             📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a><br>
-            💬 Телеграм: <a href="https://t.me/vitalyan2906" target="_blank">@vitalyan2906</a>
+            💬 Telegram: <a href="https://web.telegram.org/k/#@vitalyan2906" target="_blank">@vitalyan2906</a>
         </p>
         <p style="margin-top:20px; font-size:0.8rem;">Мастер в Братске — живой человек. Братск 2026.</p>
     </div>
