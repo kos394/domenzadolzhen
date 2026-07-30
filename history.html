@@ -3,78 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>История моего долга — Мастер в Братске</title>
+    <title>Моя история — Мастер в Братске</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109310973', 'ym');
-
-        ym(109310973, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109310973" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        .header { border-bottom: 2px solid #e67e22; padding: 20px 0; margin-bottom: 40px; }
-        .nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-        .logo { font-size: 1.8rem; font-weight: 800; color: #e67e22; }
-        .nav-links { display: flex; gap: 25px; flex-wrap: wrap; }
-        .nav-links a { color: #ddd; text-decoration: none; font-weight: 600; }
-        .nav-links a:hover { color: #e67e22; }
-        .stage { background: #151515; padding: 25px; margin: 30px 0; border-left: 4px solid #e67e22; border-radius: 0 12px 12px 0; }
-        .stage h3 { color: #e67e22; margin-bottom: 10px; }
-        .stage-date { color: #888; font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        .footer { text-align: center; padding: 50px 0 30px; margin-top: 80px; border-top: 1px solid #222; }
-        .footer a { color: #e67e22; text-decoration: none; }
-        .btn-back { display: inline-block; background: #e67e22; color: white; padding: 10px 20px; text-decoration: none; margin-top: 20px; border-radius: 8px; }
-        @media (max-width: 768px) { .nav { flex-direction: column; align-items: center; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #e67e22;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #e67e22;
+        }
+        .logo span {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+        .story-block {
+            background: #151515;
+            padding: 50px;
+            margin: 40px 0;
+            border-left: 4px solid #e67e22;
+            border-radius: 0 12px 12px 0;
+        }
+        .story-block h1 {
+            color: #e67e22;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        .story-block p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+        .story-block .highlight-text {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .story-block .signature {
+            font-size: 1.4rem;
+            color: #e67e22;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
+            list-style: none;
+            padding: 0;
+        }
+        .skills-list li {
+            background: #1f1f1f;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border-left: 3px solid #e67e22;
+            font-size: 1rem;
+        }
+        .cta-block {
+            background: #1a1a1a;
+            padding: 35px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 12px;
+            border: 1px solid #e67e22;
+        }
+        .cta-block .big-phone {
+            font-size: 2.5rem;
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin: 15px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: #e67e22;
+            color: #0a0a0a;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 40px;
+            margin: 10px 5px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #f39c12;
+        }
+        .btn-secondary {
+            background: #2c2c2c;
+            color: #e0e0e0;
+            border: 1px solid #e67e22;
+        }
+        .btn-secondary:hover {
+            background: #3a3a3a;
+        }
+        .footer {
+            background: #050505;
+            padding: 50px 0 30px;
+            margin-top: 80px;
+            text-align: center;
+        }
+        .footer a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .story-block {
+                padding: 30px;
+            }
+            .story-block h1 {
+                font-size: 2rem;
+            }
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-block .big-phone {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
+
+<div class="header">
+    <div class="container">
         <div class="nav">
-            <div class="logo">МАСТЕР В БРАТСКЕ</div>
+            <div class="logo">МАСТЕР В БРАТСКЕ <span>Виталий</span></div>
             <div class="nav-links">
                 <a href="index.html">Главная</a>
-                <a href="history.html">История долга</a>
+                <a href="history.html">Моя история</a>
                 <a href="master.html">Услуги мастера</a>
-                <a href="debts.html">Мои долги</a>
+                <a href="works.html">Мои работы</a>
                 <a href="donate.html">Помочь</a>
                 <a href="contacts.html">Контакты</a>
                 <a href="reviews.html">Отзывы</a>
             </div>
         </div>
     </div>
-
-    <h1>История моего долга</h1>
-    <p>Виталий, 49 лет. Братск. Честно о том, как я влез в долги и как пытаюсь выбраться.</p>
-
-    <div class="stage"><h3>🔥 2023-2024: Ловушка «быстрых денег»</h3><span class="stage-date">Биржа, кредиты, азарт</span><p>Всё началось с рекламы финансовой биржи. Поверил, вошёл в азарт, взял кредиты — и проиграл. Остановиться не мог, пока не упёрся в потолок.</p></div>
-    <div class="stage"><h3>🔄 2024-2025: День сурка с микрозаймами</h3><span class="stage-date">Новые займы для старых долгов</span><p>Чтобы платить по кредитам, брал микрозаймы. В день отдавал 2000-2500 ₽ только процентов. Работал в такси, но машина ломалась. Долг рос.</p></div>
-    <div class="stage"><h3>⚖️ Март 2025: Реструктуризация</h3><span class="stage-date">Решение через суд</span><p>Подал на реструктуризацию. Суд переносят уже 14 раз. Долг вырос с 1 172 000 до 1 372 000 ₽. Проценты капают, но я не сдаюсь.</p></div>
-    <div class="stage"><h3>⛔ Октябрь 2025: Дно</h3><span class="stage-date">Арест счетов, смерть вариатора</span><p>Приставы арестовали все счета. Умер вариатор на машине. На последние 25 000 ₽ купил ноутбук и начал учиться делать сайты.</p></div>
-    <div class="stage"><h3>💻 Декабрь 2025: Создание сайта</h3><span class="stage-date">Начало новой жизни</span><p>На том самом ноутбуке создал этот сайт. Не для денег, а чтобы помочь другим не наступить на те же грабли.</p></div>
-    <div class="stage"><h3>🧠 Сейчас: Июнь 2026</h3><span class="stage-date">Долг 1,37 млн, но я в деле</span><p>Долг всё ещё здесь. Но я строю дом, работаю мастером, учусь, развиваю сайт. И верю, что вылезу.</p></div>
-
-    <a href="index.html" class="btn-back">← На главную</a>
 </div>
+
+<main class="container">
+    <div class="story-block">
+        <h1>🧑‍🔧 Как я стал мастером</h1>
+        
+        <p><span class="highlight-text">Меня зовут Виталий.</span> Я живу в Братске, строю дом для семьи и занимаюсь ремонтами, сваркой и отделкой уже больше 10 лет.</p>
+        
+        <p>Начинал я не с институтов и курсов. Пришлось учиться всему самому — брать в руки инструмент, смотреть, как делают другие, пробовать, ошибаться и переделывать. Сначала для себя, потом для друзей, а потом и для незнакомых людей.</p>
+        
+        <p>Я ремонтировал старые дома, варил калитки и заборы, заливал полы, перекрывал крыши, восстанавливал ванны, устанавливал окна и двери. С каждым заказом появлялся новый опыт, и я убеждался: <span class="highlight-text">главное в работе — не скорость, а надёжность</span>.</p>
+        
+        <p>У меня нет «лишних» слов и пустых обещаний. Я делаю то, что умею, и не берусь за то, в чём не уверен. Если я говорю, что сделаю, — значит, сделаю на совесть.</p>
+        
+        <h3 style="color: #e67e22; margin-top: 30px; margin-bottom: 15px;">Что я умею сегодня:</h3>
+        <ul class="skills-list">
+            <li>⚡ Сварка (калитки, заборы, ворота, навесы, металлоконструкции)</li>
+            <li>🏠 Внутренняя отделка помещений (ГКЛ, ОСБ, ПВХ, линолеум)</li>
+            <li>🪑 Столярка и деревянные конструкции</li>
+            <li>🪟 Установка окон и дверей</li>
+            <li>🛁 Восстановление ванн акрилом</li>
+            <li>🔨 Мелкая стройка и монтаж</li>
+        </ul>
+        
+        <p>Сейчас я продолжаю учиться и осваивать новое. Но главное, что я знаю точно: <span class="highlight-text">работа должна приносить пользу людям и радость мне</span>. Я не идеален, но я честен перед собой и перед теми, кто доверяет мне свои дома.</p>
+        
+        <p>Если вам нужен мастер, которому не всё равно на результат, — я здесь.</p>
+
+        <div class="signature">Виталий, мастер в Братске</div>
+    </div>
+
+    <div class="cta-block">
+        <p style="font-size: 1.5rem;">📞 Есть задача или вопрос? Звоните, я отвечу</p>
+        <a href="tel:89294390444" class="big-phone">8 929 439-04-44</a>
+        <div>
+            <a href="tel:89294390444" class="btn">📞 ПОЗВОНИТЬ</a>
+            <a href="https://t.me/vitalyan2906" target="_blank" class="btn btn-secondary">💬 НАПИСАТЬ В ТЕЛЕГУ</a>
+        </div>
+        <p style="margin-top: 20px; color: #aaa;">⚡ Работаю в Братске и рядом. Без предоплаты — сначала сделаю, потом заплатите.</p>
+    </div>
+</main>
+
 <footer class="footer">
     <div class="container">
-        <p><strong>Виталий, Мастер в Братске</strong> — должник, строитель, мастер.</p>
-        <p>Честная история без прикрас. Сварка, стройка, долги — всё в одном месте.</p>
-        <p style="margin-top:20px;">📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a> | 💬 Телега: <a href="https://t.me/vitalyan2906" target="_blank">@vitalyan2906</a></p>
+        <p><strong>Виталий, Мастер в Братске</strong> — строитель, мастер, человек.</p>
+        <p>Делаю руками, отвечаю за результат.</p>
+        <p style="margin-top:20px;">
+            📞 Телефон: <a href="tel:89294390444">8 929 439-04-44</a><br>
+            💬 Телеграм: <a href="https://t.me/vitalyan2906" target="_blank">@vitalyan2906</a>
+        </p>
         <p style="margin-top:20px; font-size:0.8rem;">Мастер в Братске — живой человек. Братск 2026.</p>
     </div>
 </footer>
+
 </body>
 </html>
